@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'weather-icons/css/weather-icons.css'
 import React, { Component } from 'react'
 import Form from './components/Form'
+import { Helmet } from "react-helmet"
 
 const API_key = 'e5f97e7cc1a8735d58abec6555890821'
 
@@ -19,7 +20,7 @@ export default class App extends Component {
       celsius: undefined,
       temp_max: undefined,
       temp_min: undefined,
-      discription:'',
+      description:'',
       error: false
     }
 
@@ -86,7 +87,6 @@ export default class App extends Component {
 
       const response = await api_call.json();
 
-      console.log(response);
       // uses the data from the api to change the states created, to be passed as props to be rendered in weather component
       this.setState({
         city: `${ response.name}, ${ response.sys.country }`,
@@ -107,6 +107,11 @@ export default class App extends Component {
   render() {
     return (
       <div className='App'>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Weather App</title>
+                <link rel="canonical" href="http://Shakadeliks.github.io/weather-app" />
+            </Helmet>
         <Form loadWeather={ this.getWeather } error={ this.state.error }/>
         <Weather 
           city={ this.state.city } 
