@@ -108,10 +108,10 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Helmet>
-                <meta charSet="utf-8" />
-                <title>Weather App</title>
-                <link rel="canonical" href="http://Shakadeliks.github.io/weather-app" />
-            </Helmet>
+          <meta charSet="utf-8" />
+          <title>Weather App</title>
+          <link rel="canonical" href="http://Shakadeliks.github.io/weather-app" />
+        </Helmet>
         <Form loadWeather={ this.getWeather } error={ this.state.error }/>
         <Weather 
           city={ this.state.city } 
