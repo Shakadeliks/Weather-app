@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import Form from './components/Form'
 import { Helmet } from "react-helmet"
 
-const API_key = 'e5f97e7cc1a8735d58abec6555890821'
+
 
 
 export default class App extends Component {
@@ -83,7 +83,7 @@ export default class App extends Component {
       
     if(city && country) {
 
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`);
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}`);
 
       const response = await api_call.json();
 
